@@ -12,16 +12,15 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state={
-            message: 'message'
+            message: 'Click me to go next page.'
         }
     };
 
     render() {
-        console.log('location', this.props.location)
         return(
             <div>
-                Hello World, This is React App {this.state.message}
-                {/* <Routing location={this.props.location}/> */}
+                <h1>This is React App </h1>
+                <Routing location={this.props.location}/>
             </div>
         )
     }

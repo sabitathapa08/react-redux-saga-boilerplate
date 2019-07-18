@@ -11,7 +11,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import Immutable from 'immutable';
 // import { ConnectedRouter } from 'react-router-redux';
 // import 'leaflet/dist/leaflet.css';
 // Import root app
@@ -19,7 +18,6 @@ import App from './src/App/app';
 import ErrorBoundary from './ErrorBoundary';
 import configureStore from './store';
 import {createBrowserHistory} from 'history';
-import {BrowserRouter as Router} from 'react-router-dom';
 
 const history = createBrowserHistory();
 
@@ -29,12 +27,10 @@ const initialState = {};
 const store = configureStore(initialState, history);
   ReactDOM.render(
     <Provider store={store}>
-      {/* <Router>
-      </Router> */}
       <ConnectedRouter history={history}>
-      <ErrorBoundary>
-          <App />
-        </ErrorBoundary>
+        <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
         
       </ConnectedRouter>
     </Provider>,

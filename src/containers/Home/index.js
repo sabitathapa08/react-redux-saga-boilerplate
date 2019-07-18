@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component{
     render() {
-        console.log('location', this.props);
-        
         return(
-            <div>HomePage</div>
+            <div>HomePage
+                <div><Link to="/about">about</Link></div> 
+            </div>
         )
     }
 }
