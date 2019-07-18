@@ -4,9 +4,9 @@ import { connectRouter } from 'connected-react-router';
   /**
  * Creates the main reducer with the asynchronously loaded ones
  */
-const createReducer = (history) => combineReducers({
+export default (history) => combineReducers({
       router: connectRouter(history),
       global: globalReducer
     });
 
-    export default createReducer;
+    

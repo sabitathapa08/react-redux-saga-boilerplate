@@ -3,7 +3,7 @@
  */
 
 import { createStore, applyMiddleware, compose } from 'redux';
-import { routerMiddleware } from 'connected-react-router';
+import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createReducer from './reducers';
@@ -24,8 +24,11 @@ export default function configureStore(preloadedState, history) {
   });
   /* eslint-enable */
   
-  const store = createStore(createReducer(history), preloadedState,
-  composeEnhancers(applyMiddleware(...middlewares)));
+  const store = createStore(
+    createReducer(history), 
+    preloadedState,
+    composeEnhancers(applyMiddleware(...middlewares))
+    );
   
   sagaMiddleware.run(globalSagas);
   store.runSaga = sagaMiddleware.run;
