@@ -24,7 +24,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 const history = createBrowserHistory();
 
 // Create redux store with history
-const initialState = Immutable.Map();
+const initialState = {};
 // const history = createBrowserHistory();
 const store = configureStore(initialState, history);
   ReactDOM.render(
