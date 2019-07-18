@@ -29,14 +29,14 @@ const initialState = Immutable.Map();
 const store = configureStore(initialState, history);
   ReactDOM.render(
     <Provider store={store}>
-      {/* <Router>
-      </Router> */}
-      <ConnectedRouter history={history}>
+      <Router>
       <ErrorBoundary>
           <App />
         </ErrorBoundary>
+      </Router>
+      {/* <ConnectedRouter history={history}> */}
         
-      </ConnectedRouter>
+      {/* </ConnectedRouter> */}
     </Provider>,
     document.getElementById('root')
   );

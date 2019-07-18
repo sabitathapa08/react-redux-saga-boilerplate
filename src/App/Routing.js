@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 import { makeSelectLocation } from "./selectors";
 
 import HomePage from '../containers/Home';
+import About from '../containers/About/about';
 
 const mapStateToProps = createStructuredSelector({
     location: makeSelectLocation(),
@@ -23,13 +24,12 @@ class Routing extends React.Component{
 
       render() {
           return(
-            //   <Router location={this.props.location}>
-                <Switch >
-                    {/* Route here */}
-                    <Route exact path="/" component={HomePage} />
-                </Switch>
-            //   </Router>
-          )
+            <Switch >
+                {/* Route here */}
+                <Route exact path="/" component={HomePage} />
+                <Route path="/about" component={About} />
+            </Switch>
+          );
       }
 }
 
