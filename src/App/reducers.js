@@ -1,5 +1,7 @@
 import { fromJS } from "immutable";
 import * as types from './constants';
+import { combineReducers } from 'redux';
+import homeReducer  from '../containers/Home/reducer';
 
 export const initialState = fromJS({
   response: null,
@@ -44,4 +46,9 @@ function Appreducers(state = initialState, action = {}) {
   }
 }
 
-export default Appreducers;
+const Rootreducers = combineReducers({
+  Appreducers,
+  homeReducer
+});
+
+export default Rootreducers;

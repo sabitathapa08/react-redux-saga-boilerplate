@@ -25,7 +25,7 @@ export default function configureStore(preloadedState, history) {
   /* eslint-enable */
   
   const store = createStore(
-    createReducer(history), 
+    createReducer(), 
     preloadedState,
     composeEnhancers(applyMiddleware(...middlewares))
     );
@@ -41,7 +41,7 @@ export default function configureStore(preloadedState, history) {
     module.hot.accept('./reducers', () => {
       import('./reducers').then(reducerModule => {
         const createReducers = reducerModule.default;
-        const nextReducers = createReducers(history);
+        const nextReducers = createReducers(store.asyncReducers);
 
         store.replaceReducer(nextReducers);
       });

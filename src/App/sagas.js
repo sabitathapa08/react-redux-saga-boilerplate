@@ -1,7 +1,8 @@
 import React from "react";
-import { takeLatest, take, call, put, fork, cancel, select } from "redux-saga/effects";
+import { takeLatest, take, call, put, fork, cancel, select, all } from "redux-saga/effects";
 import { delay } from "redux-saga";
 import { LOCATION_CHANGE, push } from "react-router-redux";
+import homeWatcher from '../containers/Home/saga';
 
 import * as types from "./constants";
 import * as actions from "./actions";
@@ -14,13 +15,15 @@ function* loadInitialRequest() {
 }
 
 function* initializeAppRequest() {
-    const watcher = yield fork(loadInitialRequest);
+    // const watcher = yield fork(loadInitialRequest);
     yield take([types.INITIALIZE_APP_FAILURE, types.INITIALIZE_APP_SUCCESS]);
     yield cancel(watcher);
 }
 
 function* rootSaga() {
-    yield takeLatest(types.INITIALIZE_APP_REQUEST, initializeAppRequest)
+    yield all([
+        initializeAppRequest(),
+        homeWatcher()]);
 }
 
 export default rootSaga;
