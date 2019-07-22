@@ -23,7 +23,8 @@ function* initializeAppRequest() {
 function* rootSaga() {
     yield all([
         initializeAppRequest(),
-        homeWatcher()]);
+        homeWatcher()
+    ]);
 }
 
 export default rootSaga;
