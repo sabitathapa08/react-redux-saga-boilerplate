@@ -1,9 +1,16 @@
 import React from "react";
-import Switch from "react-router-dom/Switch";
-import Route from "react-router-dom/Route";
+import {Router, Switch, Route} from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { makeSelectLocation } from "./selectors";
+
+import HomePage from '../containers/Home';
+import About from '../containers/About/about';
+
+const mapStateToProps = createStructuredSelector({
+    location: makeSelectLocation(),
+  });
 
 class Routing extends React.Component{
     static propTypes = {
@@ -17,16 +24,13 @@ class Routing extends React.Component{
 
       render() {
           return(
-              <Switch>
-                  {/* Route here */}
-                  {/* <Route exact path="/" render={props => (
-                    <HomeLayout handleScrollView={this.handleScrollView}>
-                        <NewHomePage {...props} />
-                    </HomeLayout>
-                    )} /> */}
-              </Switch>
-          )
+            <Switch >
+                {/* Route here */}
+                <Route exact path="/" component={HomePage} />
+                <Route path="/about" component={About} />
+            </Switch>
+          );
       }
 }
 
-export default Routing;
+export default connect(mapStateToProps)(Routing);

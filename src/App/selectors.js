@@ -4,11 +4,11 @@
 
 import { createSelector } from 'reselect';
 
-const selectGlobal = state => state.get('global');
-const selectRoute = state => state.get('router');
+const selectGlobal = state => state.global;
+const selectRoute = state => state.router;
 
 const makeSelectError = () => createSelector(selectGlobal, state => state.get('error'));
-const makeSelectLocation = () => createSelector(selectRoute, state => state.get('location').toJS());
+const makeSelectLocation = () => createSelector(selectRoute, state => state.location);
 
 export {
   makeSelectError,
