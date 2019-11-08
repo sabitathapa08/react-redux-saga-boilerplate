@@ -17,7 +17,6 @@ import App from "./src/App/app";
 import ErrorBoundary from "./ErrorBoundary";
 import configureStore from "./store";
 import { createBrowserHistory } from "history";
-
 const history = createBrowserHistory();
 
 // Create redux store with history
