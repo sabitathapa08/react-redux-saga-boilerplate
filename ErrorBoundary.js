@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 function logErrorToMyService(error, info) {
-  console.log("error", error);
-  console.log("info", info);
+  console.log('error', error);
+  console.log('info', info);
 }
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
@@ -21,12 +21,16 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    if (this.state.hasError) {
+    const {
+      state: { hasError },
+      props: { children },
+    } = this;
+    if (hasError) {
       // You can render any custom fallback UI
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children;
+    return children;
   }
 }
 

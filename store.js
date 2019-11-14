@@ -2,7 +2,7 @@
  * Create the store with asynchronously loaded reducers
  */
 
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -23,13 +23,13 @@ export default function configureStore(preloadedState, history) {
     // Specify name here, actionsBlacklist, actionsCreators and other options if needed
   });
   /* eslint-enable */
-  
+
   const store = createStore(
-    createReducer(), 
+    createReducer(),
     preloadedState,
-    composeEnhancers(applyMiddleware(...middlewares))
-    );
-  
+    composeEnhancers(applyMiddleware(...middlewares)),
+  );
+
   sagaMiddleware.run(globalSagas);
   store.runSaga = sagaMiddleware.run;
   store.asyncReducers = {}; // Async reducer registry

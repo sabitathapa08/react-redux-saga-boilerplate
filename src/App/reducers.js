@@ -1,20 +1,20 @@
-import { fromJS } from "immutable";
-import * as types from './constants';
+import { fromJS } from 'immutable';
 import { combineReducers } from 'redux';
-import homeReducer  from '../containers/Home/reducer';
+import * as types from './constants';
+import homeReducer from '../containers/Home/reducer';
 
 export const initialState = fromJS({
   response: null,
   error: null,
   requesting: false,
   success: true,
-})
+});
 
 function Appreducers(state = initialState, action = {}) {
   switch (action.type) {
     case types.INITIALIZE_APP_REQUEST:
       return state.merge({
-        requesting: true
+        requesting: true,
       });
     case types.INITIALIZE_APP_SUCCESS:
       return state.merge({
@@ -26,14 +26,14 @@ function Appreducers(state = initialState, action = {}) {
         error: true,
       });
 
-      case types.LOAD_INITIAL_REQUEST:
+    case types.LOAD_INITIAL_REQUEST:
       return state.merge({
-        requesting: true
+        requesting: true,
       });
     case types.LOAD_INITIAL_SUCCESS:
       return state.merge({
         requesting: false,
-        response: 'response on success'
+        response: 'response on success',
       });
     case types.LOAD_INITIAL_FAILURE:
       return state.merge({
@@ -48,7 +48,7 @@ function Appreducers(state = initialState, action = {}) {
 
 const Rootreducers = combineReducers({
   Appreducers,
-  homeReducer
+  homeReducer,
 });
 
 export default Rootreducers;
