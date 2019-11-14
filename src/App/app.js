@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl';
 import PropTypes from 'prop-types';
 
 import Routing from './Routing';
-import { makeSelectLocation } from './selectors';
+import { makeSelectLocation } from '../selectors/AppSelectors';
 import MessagesEN from '../translations/en.json';
 import MessagesNE from '../translations/ne.json';
 

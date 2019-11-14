@@ -1,4 +1,4 @@
-import * as types from './constants';
+import * as types from '../constants/AppConstants';
 
 export const initializeAppRequest = () => ({
   type: types.INITIALIZE_APP_REQUEST,

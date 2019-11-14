@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
-import globalReducer from './src/App/reducers';
+import GlobalReducer from './src/reducers';
 
 const history = createBrowserHistory();
 
@@ -11,6 +11,6 @@ const history = createBrowserHistory();
 export default asyncReducers =>
   combineReducers({
     router: connectRouter(history),
-    global: globalReducer,
+    global: GlobalReducer,
     ...asyncReducers,
   });

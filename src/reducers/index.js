@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux';
-import * as types from './constants';
+
+import * as types from '../constants/AppConstants';
 import homeReducer from '../containers/Home/reducer';
 
 export const initialState = fromJS({
@@ -10,7 +11,7 @@ export const initialState = fromJS({
   success: true,
 });
 
-function Appreducers(state = initialState, action = {}) {
+function Rootreducers(state = initialState, action = {}) {
   switch (action.type) {
     case types.INITIALIZE_APP_REQUEST:
       return state.merge({
@@ -25,7 +26,6 @@ function Appreducers(state = initialState, action = {}) {
         requesting: false,
         error: true,
       });
-
     case types.LOAD_INITIAL_REQUEST:
       return state.merge({
         requesting: true,
@@ -40,15 +40,14 @@ function Appreducers(state = initialState, action = {}) {
         requesting: false,
         error: true,
       });
-
     default:
       return state;
   }
 }
 
-const Rootreducers = combineReducers({
-  Appreducers,
+const GlobalReducer = combineReducers({
+  Rootreducers,
   homeReducer,
 });
 
-export default Rootreducers;
+export default GlobalReducer;

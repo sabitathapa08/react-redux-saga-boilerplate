@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { makeSelectLocation } from './selectors';
+import { makeSelectLocation } from '../selectors/AppSelectors';
 import HomePage from '../containers/Home';
 import About from '../containers/About/about';
 
