@@ -1,8 +1,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux';
-
 import * as types from '../constants/AppConstants';
-import homeReducer from '../containers/Home/reducer';
+import homeReducer from './HomeReducer';
 
 export const initialState = fromJS({
   response: null,

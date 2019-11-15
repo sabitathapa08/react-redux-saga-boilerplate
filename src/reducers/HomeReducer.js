@@ -3,7 +3,7 @@ import {
   GET_NEWS_REQUEST,
   GET_NEWS_SUCCESS,
   GET_NEWS_FAILURE,
-} from './index';
+} from '../constants/HomeConstant';
 
 const initialState = fromJS({
   request: false,

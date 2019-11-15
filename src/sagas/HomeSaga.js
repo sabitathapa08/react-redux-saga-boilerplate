@@ -1,9 +1,9 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
+import { GET_NEWS_REQUEST } from '../constants/HomeConstant';
 import {
-  GET_NEWS_REQUEST,
   getNewsSuccess,
   getNewsFailure,
-} from './index';
+} from '../actions/HomeAction';
 
 function* getNews() {
   try {

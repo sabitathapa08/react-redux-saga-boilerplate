@@ -3,17 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
+import { getNewsRequest } from '../../actions/HomeAction';
 
-import action from '../../utils/actionCreators';
-import { makeSelectGetResponse } from './selector';
-
-export const GET_NEWS_REQUEST = 'App/Home/GET_NEWS_REQUEST';
-export const GET_NEWS_SUCCESS = 'App/Home/GET_NEWS_SUCCESS';
-export const GET_NEWS_FAILURE = 'App/Home/GET_NEWS_FAILURE';
-
-export const getNewsRequest = action(GET_NEWS_REQUEST);
-export const getNewsSuccess = action(GET_NEWS_SUCCESS);
-export const getNewsFailure = action(GET_NEWS_FAILURE);
+import { makeSelectGetResponse } from '../../selectors/HomeSelector';
 
 const mapStateToProps = createStructuredSelector({
   data: makeSelectGetResponse(),

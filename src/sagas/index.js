@@ -1,7 +1,7 @@
 import { take, cancel, all, put, fork } from 'redux-saga/effects';
 
 import * as types from '../constants/AppConstants';
-import homeWatcher from '../containers/Home/saga';
+import homeWatcher from './HomeSaga';
 
 function* loadInitialRequest() {
   const json = yield fetch('api call here').then(response =>
