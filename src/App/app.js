@@ -8,6 +8,7 @@ import Routing from './Routing';
 import { makeSelectLocation } from '../selectors/AppSelectors';
 import MessagesEN from '../translations/en.json';
 import MessagesNE from '../translations/ne.json';
+import setDefault from '../config';
 
 const mapStateToProps = createStructuredSelector({
   location: makeSelectLocation(),
@@ -25,6 +26,10 @@ class App extends Component {
     this.state = {
       selected: language,
     };
+  }
+
+  componentWillMount() {
+    setDefault();
   }
 
   render() {

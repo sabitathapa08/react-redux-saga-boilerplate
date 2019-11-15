@@ -36,3 +36,5 @@ server_app/public
 mongBackup
 
 .env
+
+dist/
