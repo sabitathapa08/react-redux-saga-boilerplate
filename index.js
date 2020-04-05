@@ -23,7 +23,9 @@ if (process.env.NODE_ENV !== 'production') {
   console.log(' we are in development mode!');
 }
 
+// Create redux store with history
 const initialState = {};
+// const history = createBrowserHistory();
 const store = configureStore(initialState, history);
 ReactDOM.render(
   <Provider store={store}>
