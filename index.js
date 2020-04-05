@@ -19,6 +19,10 @@ import configureStore from './store';
 
 const history = createBrowserHistory();
 
+if (process.env.NODE_ENV !== 'production') {
+  console.log(' we are in development mode!');
+}
+
 // Create redux store with history
 const initialState = {};
 // const history = createBrowserHistory();
