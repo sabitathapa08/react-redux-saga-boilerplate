@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { makeSelectLocation } from '../selectors/AppSelectors';
-import HomePage from '../containers/Home';
+import HomePage from '../containers/Home/Loadable';
 import About from '../containers/About/about';
 
 const mapStateToProps = createStructuredSelector({
