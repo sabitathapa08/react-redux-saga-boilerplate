@@ -1,7 +1,10 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.config.js');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
+const baseConfig = require('./webpack.base.config.js');
 module.exports = () => {
   return merge(baseConfig, {
     mode: 'development',
@@ -10,5 +13,9 @@ module.exports = () => {
       contentBase: path.join(__dirname, '/public/'),
       hot: true,
     },
+    plugins: [
+      new BundleAnalyzerPlugin({ filename: './statistics.html' }),
+      new DashboardPlugin(),
+    ],
   });
 };

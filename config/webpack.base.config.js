@@ -4,9 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
-const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   entry: ['babel-polyfill', './index.js'],
@@ -57,7 +54,5 @@ module.exports = {
       threshold: 10240,
       minRatio: 0,
     }),
-    new BundleAnalyzerPlugin({ filename: './statistics.html' }),
-    new DashboardPlugin(),
   ],
 };
