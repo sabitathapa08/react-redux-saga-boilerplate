@@ -38,3 +38,6 @@ mongBackup
 .env
 
 dist/
+
+.package-lock
+.yarn-lock
